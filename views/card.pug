@@ -1,0 +1,15 @@
+extends layout.pug
+block content    
+    section#content.container
+        br
+        h5= text
+        if hint
+            p
+                i Hint: #{hint}
+        br
+        .center-align
+            a.waves-effect.waves-light.btn(href=`?side=${sideToShow}`)= sideToShowDisplay 
+            | 
+            a.waves-effect.waves-light.btn(href=`/cards`) Next card
+            | 
+            a.waves-effect.waves-light.btn(href=`/`) Go Home
