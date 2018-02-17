@@ -8,6 +8,12 @@ const app = express();
 app.use(cookieParser());
 const colors = ['red', 'blue', 'green', 'yellow'];
 const routes = require('./routes/index')
+const mongoose = require('mongoose');
+const Cards =require('./models/Cards');
+const keys = require('./config/keys')
+
+
+
 app.use(bodyParser.urlencoded({extended: false}))
 app.use('/static', express.static('public'));
 
@@ -31,4 +37,5 @@ app.use((err, req, res, next) => {
     res.render('error');
 });
 
-app.listen(3000, () => console.log("The App has been loaded!"));
+
+app.listen(3000, () => console.log("Loaded!"));
