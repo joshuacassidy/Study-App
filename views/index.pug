@@ -1,16 +1,12 @@
 extends layout.pug
 block content    
     section#content.container 
-        if username
             
-            h3.center-align Welcome, #{username}!
-            form(action="/change", method="post")
-              .center-align
-                button.waves-effect.waves-light.btn(type='submit')
-                  i.material-icons Change User!
-                |         
-                a.waves-effect.waves-light.btn(href=`/cards`)
-                  i.material-icons See Card
+      h3.center-align Welcome!
+      br
+      .center-align
+        a.waves-effect.waves-light.btn(href=`/cards`)
+          i.material-icons See Card
 
     include includes/footer.pug
 

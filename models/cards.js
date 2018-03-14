@@ -7,7 +7,6 @@ const flashCardsSchema = mongoose.Schema({
 	 },
    hint:{
     type: String,
-    required: true
   },
   answer: {
     type: String,

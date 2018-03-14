@@ -13,6 +13,32 @@ const Cards =require('./models/Cards');
 const keys = require('./config/keys')
 
 
+mongoose.connect(keys.mongoURI);
+const db = mongoose.connection;
+app.use(bodyParser.json());
+
+
+app.get('/api', (req, res) => {
+    Cards.getFlashCards( (err, flashcards) => {
+		if (err) {
+			throw err;
+		}
+		res.json(flashcards);
+	});
+});
+
+app.post('/api', (req, res) => {
+    const flashcards = req.body;
+    flashcards.question = req.body.question;
+    flashcards.hint = req.body.hint;
+    flashcards.answer = req.body.answer;
+	Cards.addFlashCards(flashcards, (err, flashcards) => {
+		if (err) {
+			throw err;
+		}
+		res.json(flashcards);
+	});
+});
 
 app.use(bodyParser.urlencoded({extended: false}))
 app.use('/static', express.static('public'));
