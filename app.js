@@ -6,7 +6,6 @@ const cookieParser = require('cookie-parser')
 
 const app = express();
 app.use(cookieParser());
-const colors = ['red', 'blue', 'green', 'yellow'];
 const routes = require('./routes/index')
 const mongoose = require('mongoose');
 const Cards =require('./models/Cards');

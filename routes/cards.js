@@ -50,4 +50,14 @@ router.get('/:id', (req, res) => {
     })
 });
 
+router.post('/', (req, res) => {
+	var card = req.body;
+	Cards.addFlashCards(card, (err, card) => {
+		if(err){
+			throw err;
+		}
+		res.json(card);
+	});
+});
+
 module.exports = router;
